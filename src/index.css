@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0; 
+    overflow-x: auto !important;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+html{
+    font-size: 16px;
+}
+
+
+
+
+/* ===== scroll bar ===== */
+
+/* Scrollbar Track */
+::-webkit-scrollbar {
+    width: 4px;  
+    height: 4px; 
+}
+
+/* Track (Background) */
+::-webkit-scrollbar-track {
+    background: transparent;  /* No background */
+}
+
+/* Scrollbar Thumb (Draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #dfcfb5; 
+    border-radius: 10px; /* Rounded corners */
+    transition: background 0.3s ease-in-out;
+}
+
+/* On Hover - More Visible */
+::-webkit-scrollbar-thumb:hover {
+    background: #DEC498;  /* Darker on hover */
+}
+
+
+.main_container{
+    width: 90vw;
+    background-color: inherit;
+     /* border: 1px solid black;  */
+    margin: 20px auto 0px;
+    height: calc(100vh - 110px);
+    overflow-x: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.main_container.bg-white{
+    background-color: white;
+}
+  
+
+@media(max-width:900px){
+    .main_container{
+      width: 95vw;
+      height: calc(100vh - 105px);
+    }
+}
+
+@media(max-width:600px){
+    .main_container{
+         height: calc(100vh - 100px);
+     }
+} 
+
+@media(max-width:500px){
+    .main_container{
+        height: calc(100vh - 90px);
+    }
+}
