@@ -1,4 +1,5 @@
 import { useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './Auth.module.css'
 import '@fontsource/kadwa'
 import '@fontsource/jua'
@@ -6,9 +7,11 @@ import '@fontsource/jua'
 function SignUp(){
 
   let [name,setName] = useState("")
+  const navigate = useNavigate();
 
   function submitHandler(){
     console.log(name)
+    navigate('/login')
   }
 
   return(
@@ -44,7 +47,7 @@ function SignUp(){
 
             <button className={styles.btn} onClick={submitHandler}>Sign Up</button>
 
-            <p>Already have an Account ? <b style={{cursor:'pointer',color:'#DEC498'}}>Log in</b> here</p>
+            <p>Already have an Account ? <b onClick={()=>{navigate('/login')}} style={{cursor:'pointer',color:'#DEC498'}}>Log in</b> here</p>
           </form>
         
       </div> 
