@@ -57,6 +57,7 @@ html{
 
 .main_container.bg-white{
     background-color: white;
+    border-radius: 8px;
 }
   
 
@@ -77,4 +78,8 @@ html{
     .main_container{
         height: calc(100vh - 90px);
     }
+}
+
+.main_container>h1{
+    text-align: center;
 }
