@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     text-align: center;
   }
   
@@ -264,7 +264,7 @@
     }
   
     .flex{
-      gap: 10px;
+      gap: 6px;
     }
   
     .tag_header{

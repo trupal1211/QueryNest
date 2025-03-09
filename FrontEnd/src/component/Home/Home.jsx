@@ -59,7 +59,7 @@ function Home() {
         </div>
       )}
 
-      <div className={styles.addBtn} onClick={() => setShowBox(true)}>
+      <div className={showBox == false ? styles.addBtn : styles.dNone} onClick={() => setShowBox(true)}>
         <p>+</p>
       </div>
 
