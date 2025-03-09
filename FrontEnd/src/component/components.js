@@ -1,5 +1,6 @@
 import SignUp from "./Auth/SignUp";
 import LogIn from "./Auth/LogIn";
+import VerifyOtp from "./Auth/VerifyOTP";
 
 import Navbar from "./Navbar/Navbar";
 
@@ -15,4 +16,4 @@ import Profile from './Profile/Profile';
 import Archievement from "./Profile/Archievement";
 import EditProfile from "./Profile/EditProfile";
 
-export {SignUp,LogIn,Navbar,Home,Leaderboard,Profile,Archievement,QueryDetails,EditProfile,UserRow,Query,Answer}
+export {SignUp,LogIn,VerifyOtp,Navbar,Home,Leaderboard,Profile,Archievement,QueryDetails,EditProfile,UserRow,Query,Answer}

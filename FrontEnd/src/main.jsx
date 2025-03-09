@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, createRoutesFromElements, Route , RouterProvider } from 'react-router-dom'
-import { SignUp,LogIn,Home,Leaderboard,Profile,QueryDetails,EditProfile } from './component/components.js'
+import { SignUp,LogIn,VerifyOtp,Home,Leaderboard,Profile,QueryDetails,EditProfile } from './component/components.js'
 import './index.css'
 import App from './App.jsx'
 
@@ -12,6 +12,7 @@ const router = createBrowserRouter(
       <Route path="query-details" element={ <QueryDetails/> } /> 
       <Route path="login" element={ <LogIn/>  } />     
       <Route path="signup" element={ <SignUp/> } />
+      <Route path="verify-otp" element={ <VerifyOtp/> } />
       <Route path="leaderboard" element={ <Leaderboard/> } /> 
       <Route path="profile" element={ <Profile/> } />
       <Route path='edit-profile' element={<EditProfile/>}/> 
