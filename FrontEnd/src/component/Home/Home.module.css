@@ -363,6 +363,16 @@ span{
 
 
 
+/* ====================  UserQnA =========================== */
+
+.queryContainer .query{
+    border: 1px solid rgb(185, 185, 185) !important;
+    border-radius: 4px !important;
+}
+
+.queryContainer .query::before{
+    border: 0;
+}
 
 
 

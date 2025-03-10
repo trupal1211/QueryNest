@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, createRoutesFromElements, Route , RouterProvider } from 'react-router-dom'
-import { SignUp,LogIn,VerifyOtp,Home,Leaderboard,Profile,QueryDetails,EditProfile } from './component/components.js'
+import { SignUp,LogIn,VerifyOtp,Home,Leaderboard,Profile,QueryDetails,EditProfile,UserQnA} from './component/components.js'
 import './index.css'
 import App from './App.jsx'
 
@@ -15,7 +15,9 @@ const router = createBrowserRouter(
       <Route path="verify-otp" element={ <VerifyOtp/> } />
       <Route path="leaderboard" element={ <Leaderboard/> } /> 
       <Route path="profile" element={ <Profile/> } />
-      <Route path='edit-profile' element={<EditProfile/>}/> 
+      <Route path='edit-profile' element={<EditProfile/>}/>
+      <Route path="user-querys" element={ <UserQnA/> } /> 
+      <Route path="user-answers" element={ <UserQnA/> } /> 
       <Route path="*" element={ <h1>page not found</h1>  } />
     </Route>
   )
