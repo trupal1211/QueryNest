@@ -1,6 +1,7 @@
 import SignUp from "./Auth/SignUp";
 import LogIn from "./Auth/LogIn";
 import VerifyOtp from "./Auth/VerifyOTP";
+import NewPassword from "./Auth/NewPassword";
 
 import Navbar from "./Navbar/Navbar";
 
@@ -17,4 +18,4 @@ import Archievement from "./Profile/Archievement";
 import EditProfile from "./Profile/EditProfile";
 import UserQnA from "./Profile/UserQnA";
 
-export {SignUp,LogIn,VerifyOtp,Navbar,Home,Leaderboard,Profile,Archievement,QueryDetails,EditProfile,UserRow,Query,Answer,UserQnA}
+export {SignUp,LogIn,VerifyOtp,Navbar,Home,Leaderboard,Profile,Archievement,QueryDetails,EditProfile,UserRow,Query,Answer,UserQnA,NewPassword}
