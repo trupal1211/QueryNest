@@ -15,5 +15,6 @@ import UserRow from "./Leaderboard/UserRow";
 import Profile from './Profile/Profile';
 import Archievement from "./Profile/Archievement";
 import EditProfile from "./Profile/EditProfile";
+import UserQnA from "./Profile/UserQnA";
 
-export {SignUp,LogIn,VerifyOtp,Navbar,Home,Leaderboard,Profile,Archievement,QueryDetails,EditProfile,UserRow,Query,Answer}
+export {SignUp,LogIn,VerifyOtp,Navbar,Home,Leaderboard,Profile,Archievement,QueryDetails,EditProfile,UserRow,Query,Answer,UserQnA}
