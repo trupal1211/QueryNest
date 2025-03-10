@@ -4,13 +4,11 @@ import styles from './Auth.module.css'
 import '@fontsource/kadwa'
 import '@fontsource/jua'
 
-function SignUp(){
+function NewPassword(){
 
-  let [name,setName] = useState("")
   const navigate = useNavigate();
 
   function submitHandler(){
-    console.log(name)
     navigate('/login')
   }
 
@@ -25,29 +23,19 @@ function SignUp(){
           </div>
         </div>
           <form className={styles.form}>
-            <h2>Create a New Account</h2>
+            <h2>Set New Password</h2>
             <div class={styles.form_group}>
-              <input type="text" id="name" onChange={(e)=>{setName(e.target.value)}} placeholder=" " required />
-              <label for="name">Your Name</label>              
+              <input type="text" id="password" placeholder=" " required />
+              <label for="password">New Password</label>              
             </div>
-            <div class={styles.form_group}>
-              <input type="email" id="email" placeholder=" " required />
-              <label for="email">Email</label>
-              <p style={{ color: "red" }}></p>
 
-            </div>
-            <div class={styles.form_group}>
-              <input type="password" id="password" placeholder=" " required />
-              <label for="password">Password</label>
-            </div>
             <div class={styles.form_group}>
               <input type='password' id="cpassword" placeholder=" " required />
               <label for="cpassword">Confirm Password</label>
             </div>
 
-            <button className={styles.btn} onClick={submitHandler}>Sign Up</button>
+            <button className={styles.btn} style={{marginBottom:'35px'}} onClick={submitHandler}>Set Password</button>
 
-            <p>Already have an Account ? <b onClick={()=>{navigate('/login')}} style={{cursor:'pointer',color:'#DEC498'}}>Log in</b> here</p>
           </form>
         
       </div> 
@@ -55,5 +43,5 @@ function SignUp(){
   )
 }
 
-export default SignUp
+export default NewPassword
 
