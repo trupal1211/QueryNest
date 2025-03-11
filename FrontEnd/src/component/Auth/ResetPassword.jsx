@@ -4,7 +4,7 @@ import styles from './Auth.module.css'
 import '@fontsource/kadwa'
 import '@fontsource/jua'
 
-function SetNewPassword() {
+function ResetPassword() {
 
   const navigate = useNavigate();
   const [password,setPassword]=useState("")
@@ -46,5 +46,5 @@ function SetNewPassword() {
   )
 }
 
-export default SetNewPassword
+export default ResetPassword
 

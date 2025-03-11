@@ -55,7 +55,7 @@ function Query() {
                         </button>
 
                     </div>
-                    <div className={styles.comment} onClick={() => { navigate('./query-details') }}>
+                    <div className={styles.comment} onClick={() => { navigate('/query/rej') }}>
                         <button className={styles.commentButton}>
                             <MessageCircle className={styles.icon} />
                             <span>{comments} answers</span>
