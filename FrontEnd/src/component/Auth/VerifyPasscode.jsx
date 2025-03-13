@@ -82,7 +82,7 @@ function VerifyPasscode() {
                 showSuccess("passcode verified");
                 setTimeout(() => navigate("/reset-password"), 2000)
             } else {
-                showError(result.message);
+                showError(result.error || result.message);
             }
         } catch (error) {
             showError(error.message || "Something went wrong. Please try again.");

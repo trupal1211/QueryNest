@@ -115,7 +115,7 @@ function SignUp() {
 
         setTimeout(() => navigate("/verify-otp"), 2000); // Navigate after showing success message
       } else {
-        showError(result.message || "Signup failed!");
+        showError(result.error || result.message || "Signup failed!");
       }
     } catch (error) {
       showError(error.message || "Something went wrong. Please try again.");

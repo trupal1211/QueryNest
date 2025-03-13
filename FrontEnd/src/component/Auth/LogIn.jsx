@@ -56,7 +56,7 @@ function LogIn() {
         showSuccess("Login successful!");
         setTimeout(() => navigate("/"), 2000)
       } else {
-        showError(result.message || "Login failed!");
+        showError(result.error || result.message || "Login failed!");
       }
     } catch (error) {
       showError(error.message || "Something went wrong. Please try again.");

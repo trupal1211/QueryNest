@@ -57,7 +57,7 @@ function ForgotPassword() {
 
         setTimeout(()=>navigate("/verify-passcode"),2000)  
       } else {
-        showError(result.message || "failed to send Passcode!");
+        showError(result.error || result.message || "failed to send Passcode!");
       }
     } catch (error) {
       showError(error.message || "Something went wrong. Please try again.");

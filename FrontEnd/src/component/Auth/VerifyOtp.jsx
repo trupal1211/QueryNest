@@ -77,7 +77,7 @@ function VerifyOtp() {
                 setTimeout(() => navigate("/login"), 2000);
             }
             else{
-                showError(result.message || "Verification failed!");
+                showError( result.error || result.message || "Verification failed!");
             }
         } catch (error) {
             showError(error.message || "Something went wrong. Please try again.");

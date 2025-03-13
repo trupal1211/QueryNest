@@ -81,7 +81,7 @@ function ResetPassword() {
         showSuccess("Password Reset successful !");
         setTimeout(() => navigate("/login"), 2000);
       } else {
-        showError(result.message || "Fail to Reset password");
+        showError(result.error || result.message || "Fail to Reset password");
       }
     } catch (error) {
       showError(error.message || "Something went wrong. Please try again.");
