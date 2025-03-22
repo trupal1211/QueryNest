@@ -1,1 +1,696 @@
 
+.main_container.bg-white{
+    background-color: #ffffff;
+}
+
+.page_container{
+    width: 90%;
+    margin: auto;
+    margin: 20px auto;
+    line-height: 1.5;
+    /* background-color: aquamarine; */
+}   
+
+
+/* ============================== */
+
+.profile_header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    padding: 0;
+    /* background-color: gainsboro;  */
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.img_container{
+    width: 175px !important;
+    height: 175px !important;  
+    flex-shrink: 0;
+}
+
+.img_container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50% !important;
+}
+
+
+p{
+    margin: 5px 0;
+}
+
+.name{
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.username{
+    color: rgb(178, 178, 178);
+    font-size: 22px;
+    margin-top: 0px;
+}
+
+.tags{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 8px 0 0;
+}
+
+.tag{
+    font-size: 14px;
+    /* background-color: rgba(39, 104, 255, 0.081); */
+    padding: 3px 14px;
+    /* color: rgb(114, 114, 255); */
+    border-radius: 120px;
+    margin-right:12px;
+    color: #68428f;
+  background-color:rgb(245, 236, 255);
+}
+
+.follow_btn{
+    padding: 8px 28px;
+    /* color: royalblue; */
+    color: white;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: royalblue;
+    border: 2px solid royalblue;
+    border-radius: 42px;
+    cursor: pointer;
+}
+
+.edit{
+    border-color:gray ;
+    background-color: transparent;
+    color: grey;
+}
+
+svg{
+    margin-top: 0px;
+    margin-left: 4px;
+}
+
+
+
+/* ============================== */
+
+
+.bio_container{
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+    /* background-color: gainsboro; */
+}
+
+.bio_container div{
+    /* padding: 12px; */
+    box-sizing: border-box;
+    height: 65px;
+    font-size: 14px;
+    border-radius: 8px;
+    padding-right: 0px;
+}
+
+div p{
+    margin: 0;
+}
+
+.bio{
+    width:42%;
+    background-color: #FBF5EE;
+    font-size: 14px;
+    padding: 12px;
+}
+
+.wraper{
+    width: calc(58% - 20px) !important;
+    /* background-color: #ff4545; */
+    display: flex;
+    align-items: center !important;
+    gap: 20px;
+    padding: 0 !important;
+    line-height: 1.4;
+}
+
+.linkedin{
+    width:50%;
+    background-color: #edf6ff;
+    display: flex;
+    align-items: center !important;
+    gap: 16px;
+    padding: 12px;
+    padding-right: 0px;
+    height: 65px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.github{
+    width:50%;
+    background-color: #efefef;
+    display: flex;
+    align-items: center !important;
+    gap: 16px;
+    padding: 12px;
+    padding-right: 0;
+    box-sizing: border-box;
+    height: 65px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.logo_container{
+    width: 45px !important;
+    height: 45px !important;  
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+
+.logo_container img{
+    width: 100%;
+    height: 100%;
+}
+
+.details_container{
+    height: auto !important;
+
+}
+
+.id_name{
+    font-size: 18px;   
+}
+
+.small{
+    font-size: 14px;
+}
+
+
+/* =================== */
+
+.card_container{
+    width: 100%;
+    display: flex;
+    gap: 45px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+
+.card{
+    width: 25%;
+    padding: 16px;
+    text-align: center;
+    box-sizing: border-box;
+    background-color: #FBF5EE;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.card_header{
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.card_body{
+    font-size: 30px;
+}
+
+
+
+/* ==================== */
+
+
+.last_card_container{
+    width: 100%;
+    display: flex;
+    gap: 45px;
+    margin-top: 20px;
+    padding: 0;
+}
+
+
+.archivements_container{
+    width: 74%;
+    padding:10px 20px;
+    padding-bottom: 0;
+    box-sizing: border-box;
+    /* background-color: #ebffff; */
+    border: .3px solid rgba(128, 128, 128, 0.242);
+    height: 200px;
+    border-radius: 8px;
+}
+
+.followerscard_container{
+    width: 22%;
+    height: 140px;
+}
+
+.followerscard_container>.card{
+    width: 100%;
+    height: 95px ;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    padding:10px;
+    background-color: #f6efff;
+    cursor: pointer;
+}
+
+.title{
+    font-size: 20px !important;
+}
+
+.number{
+    font-size: 24px;
+    margin-top: 8px;
+}
+
+.oneline{
+    display: none !important;
+}
+
+.archivements_container>.card_header{
+    margin-bottom: 8px;
+}
+
+.archivements{
+    display: flex;
+    gap: 16px;
+    padding: 0px 0px 10px;
+    overflow-x: auto;
+    white-space: nowrap !important;
+    /* background-color: #ff4545; */
+}
+
+.archivement{
+  height: 135px; 
+  padding: 12px 20px !important;
+  box-sizing: border-box;
+  background-color: #ebffff;
+  background-color: #dbfff3;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.archivement_name{
+    font-size: 16px;  
+    margin:0 0 10px;
+}
+
+.archivement_date{
+    font-size: 12px;
+}
+
+
+
+/* =============== */
+
+.btn_container{
+    display: flex;
+    justify-content: end;
+}
+
+.logout_btn{
+    margin: 30px 0px 0;
+    padding: 12px 40px;
+    font-size: 20px;
+    border: 1.5px solid #ff4545;
+    color: #ff4545ed;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+@media(max-width:1050px){
+    .page_container{
+        width: 94%;
+    }
+
+    .small{
+        font-size: 12px;
+    }
+
+    .bio{
+        font-size: 13px;
+        padding: 4px 6px !important;
+    }
+}
+
+
+
+
+
+@media(max-width:860px){
+
+    .flex{
+        gap:25px;
+    }
+
+    .bio{
+        width: 36%;
+        padding: 4px 6px !important;
+        line-height: 1.3;
+    }
+
+    .bio_container{
+        gap: 15px;
+    }
+    
+    .wraper{
+        width: 64% !important;
+        gap: 15px;
+    }
+
+    .linkedin,.github{
+        gap: 8px;
+    }
+
+    .id_name{
+        font-size: 16px;
+    }
+
+    .follow_btn{
+    font-size: 16px;
+    font-weight: bold;
+    padding: 6px 24px;
+    }
+
+    .card_container,.last_card_container{
+        gap: 30px;
+    }
+
+    .card{
+        padding:12px;
+    }
+
+    .card_header{
+        font-size:20px ;
+    }   
+
+}
+
+
+@media(max-width:830px){
+    .page_container{
+        width: 95%;
+    }
+
+    .flex{
+        gap: 20px;
+    }
+
+    .name{
+        font-size:24px;
+    }
+
+    .username{
+        font-size:20px ;
+    }
+
+    .tag{
+        font-size: 12px;
+        margin-right: 8px;
+        margin-bottom: 6px;
+    }
+
+    .bio{
+        font-size: 12px;
+    }
+
+    .img_container{
+        width: 140px !important;
+        height: 140px !important; 
+    }
+
+    .logo_container{
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    .github,.linkedin{
+        padding-left: 8px !important;
+    }
+
+    .card_container,.last_card_container{
+        gap: 20px;
+    }
+
+    .card_header,.title{
+        font-size:18px !important ;
+    }
+
+}
+
+
+
+@media(max-width:720px){
+
+    .flex{
+        gap: 15px;
+    }
+
+    .name{
+        font-size: 22px;
+    }
+
+    .username{
+        font-size: 18px;
+    }
+
+    .logo_container{
+        width: 34px !important;
+        height: 34px !important;
+    }
+
+    .card_header{
+        font-size: 19px;
+    }
+
+    .card_body{
+        font-size: 26px;
+    }
+
+    .card{
+        padding:16px 8px;
+    }
+
+    .archivements{
+        min-height: 130px;
+    }
+}
+
+
+
+
+@media(max-width:670px){
+
+    .page_container{
+        width: 96%;
+        margin-top: 10px;
+    }    
+
+    .img_container{
+        width: 130px !important;
+        height: 130px !important; 
+    }
+
+    .width_auto{
+        width: auto;
+    }
+
+    .linkedin , .github{
+        height: 55px !important;
+        gap: 10px;
+        padding: 0px 0px 0px 6px !important;
+    }
+
+  
+    .id_name{
+        font-size: 16px;
+    }
+
+    .small{
+        font-size: 12px;
+    }
+
+    .name{
+        font-size: 20px;
+    }
+
+    .username{
+        font-size: 16px;
+    }
+
+
+    .tag{
+        font-size: 12px;
+    }
+
+    .profile_header{
+        display: block;
+    }
+
+    .follow_btn{
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .bio_container{
+        display: block;
+    }
+
+    .bio{
+        width: 100%;
+        box-sizing: border-box;
+        padding:12px !important ;
+        height: auto !important;
+        margin-top: 15px !important;
+    }
+
+    .wraper{
+        width: 100% !important;
+        margin-top: 12px;
+        gap: 15px;
+    }
+
+    .linkedin{
+        width: 50% !important;
+    }
+
+    .github{
+        width: 50% !important;
+    }
+   
+    .card_header{
+        font-size: 14px !important;
+    }
+
+    .card_body{
+        font-size:24px ;
+    }
+
+    .card{
+        padding: 10px 4px !important;
+    }
+
+    .card_container{
+        gap: 6px;
+        margin-top: 15px;
+    }
+
+    .last_card_container{
+        display: block;
+        margin-top: 15PX;
+    }
+
+    .followerscard_container{
+        width: 100%;
+        display: flex;
+        max-height: 45px !important;
+        gap: 10px;
+    }
+
+    .followerscard_container>.card{
+        width: 50%;
+        max-height: 45px !important;
+        padding: 12px;
+    }
+
+    .title,.number{
+        display: none;
+    }
+
+    .oneline{
+        display: block !important;
+        font-size: 14px;
+    }
+
+    .oneline_number{
+        font-size: 16px;
+        margin-right: 2px;
+    }
+
+
+    .archivements_container{
+        width: 100%;
+        height: auto !important;
+        margin-top:15px;
+        padding: 10px;
+        padding-bottom: 0;
+    }
+
+    .archivements_container .card_header{
+        font-size: 16px !important;
+    }
+
+    .archivements{
+        gap: 12px;
+    }
+    
+    .archivement{
+      height: 115px; 
+      padding: 8px 14px !important;
+      box-sizing: border-box;
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .logout_btn{
+        margin-top: 15px;
+        font-size: 14px;
+        padding:8px 26px;
+    }
+
+}
+
+
+@media(max-width:410px){
+
+    .id_name{
+        font-size: 14px;
+    }
+
+    .small{
+        font-size: 11px;
+    }
+
+    .card{
+        padding-left: 2px !important;
+        padding-right: 2px !important;
+
+    }
+
+    .card_header{
+        font-size: 13px !important;
+    }
+
+    .card_body{
+        font-size: 21px;
+    }
+
+}
+
+
