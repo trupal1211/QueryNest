@@ -1,0 +1,268 @@
+ .main_page{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: #FBF5EE;
+    font-family: 'Kadwa';
+    font-size: 16px;
+    display: flex;
+    justify-content: space-evenly !important;
+    align-items: center;
+}
+
+.name_container{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.name_container p {
+    margin: 0;
+}
+
+.welcome_content{
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 38px;
+}
+
+.querynest{
+    font-family: 'Jua';
+    font-size: 46px;
+    color: #DEC498;
+}
+
+.slogan{
+    font-family: 'Jua';
+    font-size: 26px;
+    color: #DEC498;
+    margin-top: 8px !important;
+    margin-left: 90px !important;
+}
+
+.form{
+    width: 32% !important;
+    height: auto !important;
+    padding: 12px;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: -4px 4px 20px #d0d0d0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.form_group {
+    width: 85%;
+    margin: 0 auto 18px;
+    position: relative;
+}
+
+.form input {
+    width: 100%;
+    padding: 10px;
+    padding-top: 18px; 
+    border: 1px solid #ccc;
+    background-color: #FFFDFB;
+    border-radius: 4px;
+    box-sizing: border-box !important;
+    outline: none;
+    font-size: 16px;
+  }
+
+  label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    background: #ffffff !important;
+    padding: 0 5px;
+    font-size: 16px;
+    color: #aaa;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+  }
+
+  .form input:focus + label,
+  .form input:not(:placeholder-shown) + label {
+    top: 0px;
+    font-size: 12px;
+    color: #deb70c;
+  }
+
+  .form input:focus{
+    border-color:  #deb70c;
+  }
+
+  .form p{
+    margin-bottom: 20px;
+  }
+
+
+.btn{
+    width: 85%;
+    padding: 7px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    background-color: #E9DCC6;
+    border: 1px solid #ECD1A4;
+    border-radius: 4px;
+    font-family: 'kadwa';
+    box-sizing: border-box;
+    font-weight: bolder;
+    color: white;
+}
+
+
+
+
+
+
+@media(max-width:1280px){
+    .form{
+        width: 36% !important;
+    }
+}
+
+@media(max-width:1000px){
+    .form{
+        width: 40% !important;
+    }
+}
+
+@media(max-width:1000px){
+    .form{
+        width: 44% !important;
+    }
+}
+
+@media(max-width:880px){
+    .form{
+        width: 48% !important;
+    }
+
+    .form_group , .btn{
+        width: 90%;
+    }
+
+    .welcome_content{
+        font-size: 34px;
+    }
+    
+    .querynest{
+        font-size: 42px;
+    }
+    
+    .slogan{
+        font-size: 22px;
+    }
+}
+
+
+
+@media(max-width:700px){
+
+    .form{
+        width: 50% !important;
+    }
+
+    .form h2{
+        font-size: 22px;
+    }
+
+    .form p{
+        font-size: 14px;
+    }
+
+    .form_group , .btn{
+        width: 92%;
+    }
+
+    .welcome_content{
+        font-size: 30px;
+    }
+    
+    .querynest{
+        font-size: 36px;
+    }
+    
+    .slogan{
+        font-size: 18px;
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .form{
+        width: 56% !important;
+    }
+
+    .form_group,.btn{
+        width: 95% !important;
+    }
+
+    .welcome_content{
+        font-size: 24px;
+    }
+    
+    .querynest{
+        font-size: 30px;
+    }
+    
+    .slogan{
+        font-size: 15px;
+    }
+}
+
+
+@media(max-width:550px){
+    .main_page{
+        display: block;
+    }
+
+    .name_container{
+        margin: 70px auto 80px;
+    }
+    
+    .name_container.signup{
+        margin: 70px auto 40px;
+    }
+    
+    .form{
+        width: 90% !important;
+        margin:10px auto 20px;
+    }
+
+    .form_group{
+        width: 85%;
+    }
+
+    .welcome_content{
+        font-size: 30px;
+    }
+    
+    .querynest{
+        font-size: 36px;
+    }
+    
+    .slogan{
+        font-size: 22px;
+    }
+
+    input{
+        padding-top: 14px; 
+    }
+
+    .form p{
+        font-size: 16px;
+    }
+
+}
