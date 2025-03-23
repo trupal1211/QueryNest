@@ -1,9 +1,9 @@
 import SignUp from "./Auth/SignUp";
 import LogIn from "./Auth/LogIn";
-import VerifyOtp from "./Auth/VerifyOtp";
+import VerifyOtp from "./Auth/VerifyOTP";
 import ForgotPassword from "./Auth/ForgotPassword";
-import SetNewPassword from "./Auth/SetNewPassword";
 import VerifyPasscode from "./Auth/VerifyPasscode";
+import ResetPassword from "./Auth/ResetPassword";
 
 import Navbar from "./Navbar/Navbar";
 
@@ -21,7 +21,7 @@ import EditProfile from "./Profile/EditProfile";
 import UserQnA from "./Profile/UserQnA";
 
 export{
-    SignUp,LogIn,VerifyOtp,VerifyPasscode,SetNewPassword,ForgotPassword,
+    SignUp,LogIn,VerifyOtp,ForgotPassword,VerifyPasscode,ResetPassword,
     Navbar,
     Home,Query,Answer,
     Leaderboard,UserRow,

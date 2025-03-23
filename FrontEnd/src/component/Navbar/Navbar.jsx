@@ -25,7 +25,7 @@ function Navbar() {
 
             <div className={`${styles.overlay} ${menuOpen ? styles.active : ""}`} onClick={closeMenu}></div>
             <div className={styles.nav}>
-                <div className={styles.logo} onClick={() => navigate('./home')}>
+                <div className={styles.logo} onClick={() => navigate('./')}>
                     <p>QueryNest</p>
                 </div>
                 <div className={styles.search}>

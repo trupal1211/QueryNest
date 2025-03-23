@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom'
 import { Query , Answer } from '../../component/components';
 
 function UserQnA() {
-
     let navigate = useNavigate()
 
     return (
