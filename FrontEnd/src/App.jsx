@@ -4,7 +4,7 @@ import {Navbar} from './component/components'
 function App() {
 
   const location = useLocation()
-  const noNavbarRoutes = ['/login', '/signup']; 
+  const noNavbarRoutes = ['/login', '/signup','/verify-otp','/verify-passcode','/forgot-password','/reset-password']; 
 
   return (
     <>

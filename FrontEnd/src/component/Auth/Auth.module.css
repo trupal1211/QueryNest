@@ -1,4 +1,4 @@
- .main_page{
+.main_page {
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -13,7 +13,7 @@
     align-items: center;
 }
 
-.name_container{
+.name_container {
     width: auto;
     margin: 0;
     padding: 0;
@@ -26,20 +26,20 @@
     margin: 0;
 }
 
-.welcome_content{
+.welcome_content {
     width: auto;
     margin: 0 auto;
     text-align: center;
     font-size: 38px;
 }
 
-.querynest{
+.querynest {
     font-family: 'Jua';
     font-size: 46px;
     color: #DEC498;
 }
 
-.slogan{
+.slogan {
     font-family: 'Jua';
     font-size: 26px;
     color: #DEC498;
@@ -47,7 +47,7 @@
     margin-left: 90px !important;
 }
 
-.form{
+.form {
     width: 32% !important;
     height: auto !important;
     padding: 12px;
@@ -67,16 +67,16 @@
 .form input {
     width: 100%;
     padding: 10px;
-    padding-top: 18px; 
+    padding-top: 18px;
     border: 1px solid #ccc;
     background-color: #FFFDFB;
     border-radius: 4px;
     box-sizing: border-box !important;
     outline: none;
     font-size: 16px;
-  }
+}
 
-  label {
+.form_group label {
     position: absolute;
     top: 50%;
     left: 10px;
@@ -87,25 +87,25 @@
     color: #aaa;
     transition: all 0.2s ease-in-out;
     pointer-events: none;
-  }
+}
 
-  .form input:focus + label,
-  .form input:not(:placeholder-shown) + label {
+.form input:focus+label,
+.form input:not(:placeholder-shown)+label {
     top: 0px;
     font-size: 12px;
     color: #deb70c;
-  }
+}
 
-  .form input:focus{
-    border-color:  #deb70c;
-  }
+.form input:focus {
+    border-color: #deb70c;
+}
 
-  .form p{
+.form p {
     margin-bottom: 20px;
-  }
+}
 
 
-.btn{
+.btn {
     width: 85%;
     padding: 7px;
     margin-bottom: 12px;
@@ -117,152 +117,220 @@
     box-sizing: border-box;
     font-weight: bolder;
     color: white;
+    cursor: pointer;
 }
 
 
 
 
+.otpContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    width: auto !important;
+}
+
+.otpBox {
+    width: 50px !important;
+    height: 50px !important;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 10px !important;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    background-color: #FFFDFB;
+}
+
+.otpContainer input {
+    padding-top: 12px;
+    border: 1.5px solid #ccc;
+
+}
+
+.otpBox:focus {
+    border-color: #deb70c;
+}
 
 
-@media(max-width:1280px){
-    .form{
+.btn.submitBtn {
+    width: 355px;
+}
+
+.rednotes{
+   color: #e90000;
+   margin-bottom: 6px !important;
+}
+
+
+@media(max-width:1280px) {
+    .form {
         width: 36% !important;
     }
 }
 
-@media(max-width:1000px){
-    .form{
+@media(max-width:1000px) {
+    .form {
         width: 40% !important;
     }
 }
 
-@media(max-width:1000px){
-    .form{
+@media(max-width:1000px) {
+    .form {
         width: 44% !important;
     }
 }
 
-@media(max-width:880px){
-    .form{
+@media(max-width:880px) {
+    .form {
         width: 48% !important;
     }
 
-    .form_group , .btn{
+    .form_group,
+    .btn {
         width: 90%;
     }
 
-    .welcome_content{
+    .welcome_content {
         font-size: 34px;
     }
-    
-    .querynest{
+
+    .querynest {
         font-size: 42px;
     }
-    
-    .slogan{
+
+    .slogan {
         font-size: 22px;
+    }
+
+    .otpContainer{
+       gap: 8px;
+    }
+
+    .otpBox{
+       width: 45px !important;
+       height: 45px !important;
+    }
+
+    .btn.submitBtn{
+       width: 315px;
     }
 }
 
 
 
-@media(max-width:700px){
+@media(max-width:700px) {
 
-    .form{
+    .form {
         width: 50% !important;
     }
 
-    .form h2{
+    .form h2 {
         font-size: 22px;
     }
 
-    .form p{
+    .form p {
         font-size: 14px;
     }
 
-    .form_group , .btn{
+    .form_group,
+    .btn {
         width: 92%;
     }
 
-    .welcome_content{
+    .welcome_content {
         font-size: 30px;
     }
-    
-    .querynest{
+
+    .querynest {
         font-size: 36px;
     }
-    
-    .slogan{
+
+    .slogan {
         font-size: 18px;
+    }
+
+    .otpContainer{
+       gap: 6px;
+    }
+
+    .otpBox{
+       width: 40px !important;
+       height: 40px !important;
+    }
+
+    .btn.submitBtn{
+       width: 275px !important;
     }
 
 }
 
 
-@media(max-width:600px){
+@media(max-width:600px) {
 
-    .form{
+    .form {
         width: 56% !important;
     }
 
-    .form_group,.btn{
+    .form_group,
+    .btn {
         width: 95% !important;
     }
 
-    .welcome_content{
+    .welcome_content {
         font-size: 24px;
     }
-    
-    .querynest{
+
+    .querynest {
         font-size: 30px;
     }
-    
-    .slogan{
+
+    .slogan {
         font-size: 15px;
     }
 }
 
 
-@media(max-width:550px){
-    .main_page{
+@media(max-width:550px) {
+    .main_page {
         display: block;
     }
 
-    .name_container{
+    .name_container {
         margin: 70px auto 80px;
     }
-    
-    .name_container.signup{
+
+    .name_container.signup {
         margin: 70px auto 40px;
     }
-    
-    .form{
+
+    .form {
         width: 90% !important;
-        margin:10px auto 20px;
+        margin: 10px auto 20px;
     }
 
-    .form_group{
+    .form_group {
         width: 85%;
     }
 
-    .welcome_content{
+    .welcome_content {
         font-size: 30px;
     }
-    
-    .querynest{
+
+    .querynest {
         font-size: 36px;
     }
-    
-    .slogan{
+
+    .slogan {
         font-size: 22px;
     }
 
-    input{
-        padding-top: 14px; 
+    input {
+        padding-top: 14px;
     }
 
-    .form p{
+    .form p {
         font-size: 16px;
     }
-
 }
