@@ -64,6 +64,20 @@
     position: relative;
 }
 
+.form_group.password_field {
+    position: relative;
+}
+
+.form_group.password_field svg {
+    position: absolute;
+    right: 14px;
+    top: 14px;
+    fill: #DEC498 !important;
+
+}
+
+
+
 .form input {
     width: 100%;
     padding: 10px;
@@ -110,6 +124,7 @@
     padding: 7px;
     margin-bottom: 12px;
     font-size: 18px;
+    min-height: 52px;
     background-color: #E9DCC6;
     border: 1px solid #ECD1A4;
     border-radius: 4px;
@@ -120,6 +135,22 @@
     cursor: pointer;
 }
 
+.btn:hover {
+    background-color: #e1d0b3;
+}
+
+button:active {
+    transform: scale(0.985);
+}
+
+.navigateLink {
+    cursor: pointer;
+    color: #e0cfb2;
+}
+
+.navigateLink:hover {
+    color: #d7bd8f;
+}
 
 
 
@@ -158,10 +189,96 @@
     width: 355px;
 }
 
-.rednotes{
-   color: #e90000;
-   margin-bottom: 6px !important;
+.rednotes {
+    color: #ff4545;
+    margin-bottom: 6px !important;
 }
+
+
+
+.errorMsg {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    margin-right: 20px;
+    background-color: #ff4d4d;
+    letter-spacing: 1;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 14px;
+    animation: slideIn 0.4s ease-out;
+}
+
+.successMsg {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    margin-right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    font-size: 14px;
+    animation: messageSlideIn 0.4s ease-out;
+}
+
+@keyframes messageSlideIn {
+    from {
+        transform: translateX(-20px) scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* loader */
+
+.loader {
+    width: 25px;
+    margin: auto;
+    --b: 8px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px;
+    background: conic-gradient(#0000 10%, #ffffff) content-box;
+    -webkit-mask:
+        repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation: l4 1s infinite steps(10);
+}
+
+@keyframes l4 {
+    to {
+        transform: rotate(1turn)
+    }
+}
+
+
+
+/* ======================================== */
 
 
 @media(max-width:1280px) {
@@ -204,17 +321,17 @@
         font-size: 22px;
     }
 
-    .otpContainer{
-       gap: 8px;
+    .otpContainer {
+        gap: 8px;
     }
 
-    .otpBox{
-       width: 45px !important;
-       height: 45px !important;
+    .otpBox {
+        width: 45px !important;
+        height: 45px !important;
     }
 
-    .btn.submitBtn{
-       width: 315px;
+    .btn.submitBtn {
+        width: 315px;
     }
 }
 
@@ -251,18 +368,20 @@
         font-size: 18px;
     }
 
-    .otpContainer{
-       gap: 6px;
+    .otpContainer {
+        gap: 6px;
     }
 
-    .otpBox{
-       width: 40px !important;
-       height: 40px !important;
+    .otpBox {
+        width: 40px !important;
+        height: 40px !important;
     }
 
-    .btn.submitBtn{
-       width: 275px !important;
+    .btn.submitBtn {
+        width: 275px !important;
     }
+
+
 
 }
 
@@ -288,6 +407,12 @@
 
     .slogan {
         font-size: 15px;
+    }
+
+    .errorMsg,
+    .successMsg {
+        font-size: 12px;
+        padding: 8px 10px;
     }
 }
 

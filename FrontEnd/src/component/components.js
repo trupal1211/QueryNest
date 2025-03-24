@@ -1,3 +1,6 @@
+import AuthGuard from "./RouteProtection/AuthGuard";
+import PrivateRoute from "./RouteProtection/PrivateRoute";
+
 import SignUp from "./Auth/SignUp";
 import LogIn from "./Auth/LogIn";
 import VerifyOtp from "./Auth/VerifyOTP";
@@ -21,6 +24,7 @@ import EditProfile from "./Profile/EditProfile";
 import UserQnA from "./Profile/UserQnA";
 
 export{
+    AuthGuard,PrivateRoute,
     SignUp,LogIn,VerifyOtp,ForgotPassword,VerifyPasscode,ResetPassword,
     Navbar,
     Home,Query,Answer,
