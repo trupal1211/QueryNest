@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useState , useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import styles from './Auth.module.css'
 import '@fontsource/kadwa'
 import '@fontsource/jua'
 import Cookies from "js-cookie";
+import AuthUserContext from '../../context/AuthUserContext'
 
 function LogIn() {
 
@@ -14,6 +15,9 @@ function LogIn() {
   const [loaderStatus, setLoaderStatus] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
+  // fetchAuthUser function fetch the data of loggedIn user and Store in Centralized Storage(AuthUser) 
+  const { fetchAuthUser } = useContext(AuthUserContext);
 
 
   function showError(message) {
@@ -54,12 +58,15 @@ function LogIn() {
       setLoaderStatus(false)
 
       if (response.ok) {
+        showSuccess("Login successful!");
+        
         console.log("authToken:" + result.token)
         // localStorage.setItem("email", result.email)
         Cookies.set("authToken", result.token, { expires: 7 }); // Expires in 7 days
         Cookies.set("currentUserId", result.userId, { expires: 7 })
+        
+        fetchAuthUser();// Fetch user data after login
 
-        showSuccess("Login successful!");
         setTimeout(() => navigate("/"), 2000)
       } else {
         showError(result.message || "Login failed!");

@@ -2,6 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import { SignUp, LogIn, VerifyOtp, VerifyPasscode, ForgotPassword, ResetPassword, Home, Leaderboard, Profile, QueryDetails, EditProfile, UserQnA, PrivateRoute, AuthGuard } from './component/components.js'
+import { AuthUserProvider } from './context/AuthUserProvider.jsx'
 import './index.css'
 import App from './App.jsx'
 
@@ -35,13 +36,14 @@ const router = createBrowserRouter(
       <Route path="*" element={<div><h1>404! Page Not Found</h1></div>} />
     </Route>
 
-
   )
 );
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthUserProvider>
+      <RouterProvider router={router} />
+    </AuthUserProvider>
   </StrictMode>,
 )
