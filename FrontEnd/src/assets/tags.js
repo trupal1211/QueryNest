@@ -1,14 +1,15 @@
 let tags = [
     'General Query',
-    'Teachnical',
-    'Placement/Internship',
-    'Competitive Coding',
-    'Hostel',
-    'food',
-    'further Study',
-    'Soft skills',
+    'Technical',
+    'Placement / Internship',
+    'Coding',
+    'Curriculum',
+    'Competitive Exam',
+    'Soft Skills',
+    'Food',
     'Sports',
-    'Curriculum'
+    'Further Studies',
+    'Hostel',
 ]
 
 export default tags;

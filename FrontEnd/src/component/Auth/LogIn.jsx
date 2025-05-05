@@ -19,7 +19,6 @@ function LogIn() {
   // fetchAuthUser function fetch the data of loggedIn user and Store in Centralized Storage(AuthUser) 
   const { fetchAuthUser } = useContext(AuthUserContext);
 
-
   function showError(message) {
     setError(message);
     setSuccess("");

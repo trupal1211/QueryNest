@@ -9,6 +9,7 @@ import VerifyPasscode from "./Auth/VerifyPasscode";
 import ResetPassword from "./Auth/ResetPassword";
 
 import Navbar from "./Navbar/Navbar";
+import SearchedUser from "./Navbar/SearchedUser";
 
 import Home from './Home/Home';
 import QueryDetails from "./Home/QueryDetails";
@@ -26,7 +27,7 @@ import UserQnA from "./Profile/UserQnA";
 export{
     AuthGuard,PrivateRoute,
     SignUp,LogIn,VerifyOtp,ForgotPassword,VerifyPasscode,ResetPassword,
-    Navbar,
+    Navbar,SearchedUser,
     Home,Query,Answer,
     Leaderboard,UserRow,
     Profile,Archievement,

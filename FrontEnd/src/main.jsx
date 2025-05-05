@@ -36,6 +36,7 @@ const router = createBrowserRouter(
       <Route path="*" element={<div><h1>404! Page Not Found</h1></div>} />
     </Route>
 
+
   )
 );
 
@@ -43,7 +44,7 @@ const router = createBrowserRouter(
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthUserProvider>
-      <RouterProvider router={router} />
+    <RouterProvider router={router} />
     </AuthUserProvider>
   </StrictMode>,
 )

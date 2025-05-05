@@ -1,4 +1,4 @@
-.page_header{
+.page_header {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -6,18 +6,18 @@
     margin-top: 4px;
 }
 
-.backbtn{
+.backbtn {
     margin: 4px 18px !important;
     cursor: pointer;
 }
 
-.tagContainer{
+.tagContainer {
     width: auto !important;
     margin-left: 18px;
     margin-right: 10px;
 }
 
-.tag{
+.tag {
     font-size: 14px;
     padding: 4px 18px 3px 14px !important;
     font-weight: normal;
@@ -25,6 +25,11 @@
     font-size: 14px;
     color: #68428f;
     background-color: rgb(245, 236, 255);
+
+    /* color: white !important;
+    background-color: rgb(147, 96, 198) !important;
+    background-color: rgb(172, 137, 208) !important; */
+
 }
 
 .query {
@@ -41,10 +46,21 @@
     box-sizing: border-box;
 }
 
-.answer{
-    float: right;
+
+.answerContainer {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.answerWraper {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.answer {
     width: 70%;
-    margin-right: 8px;
+    margin-right: 16px;
     margin-bottom: 15px;
     border-radius: 4px;
     border: .7px solid #c7c7c7;
@@ -116,7 +132,7 @@
     font-size: 14px;
 }
 
-.tag{
+.tag {
     font-size: .8rem;
     padding: 3px 14px;
     /* background-color: rgb(238, 243, 255);
@@ -126,7 +142,7 @@
     font-size: 12px;
     cursor: pointer;
     color: #68428f;
-  background-color:rgb(245, 236, 255);
+    background-color: rgb(245, 236, 255);
 
 }
 
@@ -151,11 +167,14 @@
     transition: color 0.3s ease;
 }
 
-.starContainer{
-    width: 50px;
+.starContainer {
+    width: auto;
+    display: flex;
+    align-items: center;
+
 }
 
-.star{
+.star {
     width: 28px;
     height: 20px;
     margin-right: 6px;
@@ -163,7 +182,7 @@
     gap: 4px;
 }
 
-.star img{
+.star img {
     width: 100%;
     height: 100%;
 }
@@ -201,26 +220,55 @@ span {
 }
 
 
-.line{
-    width: 98%;
-    margin: auto;
-    border-top:1px solid #c7c7c7;
-    margin-bottom: 15px; 
+
+/* =====  for submit rating ===== */
+
+.rateBtnContainer{
+    display: flex;
+}
+
+.rateInput{
+    width: 50px;
+    border-radius: 6px;
+    padding: 4px 6px 4px 10px;
+    border: 1px solid black;
+}
+
+.rateInput:focus{
+    outline: #DEC498;
+    border: 1.5px solid #DEC498;
+}
+
+.rateBtn{
+    margin:0 10px;
+    background-color: #DEC498;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 4px;
+    border: 0;
 }
 
 
-.answerpost_box{
+.line {
+    width: 98%;
+    margin: auto;
+    border-top: 1px solid #c7c7c7;
+    margin-bottom: 15px;
+}
+
+
+.answerpost_box {
     width: 60%;
     z-index: 100;
     background-color: #ffffff;
     position: fixed;
     bottom: 0 !important;
-    left: calc( 50% - 30%); 
-    display: flex;  
-    align-items: center; 
+    left: calc(50% - 30%);
+    display: flex;
+    align-items: center;
 }
 
-.form_group{
+.form_group {
     width: 85%;
     height: 64px;
 }
@@ -239,9 +287,9 @@ span {
     box-sizing: border-box !important;
     outline: none;
     font-size: 15px;
-  }
-  
-  .textarea_label {
+}
+
+.textarea_label {
     position: absolute;
     top: 30px;
     left: 10px;
@@ -255,23 +303,23 @@ span {
     color: #aaa;
     transition: all 0.2s ease-in-out;
     pointer-events: none;
-  }
-    
-  .answerpost_box textarea:focus+label,
-  .answerpost_box textarea:not(:placeholder-shown)+label {
+}
+
+.answerpost_box textarea:focus+label,
+.answerpost_box textarea:not(:placeholder-shown)+label {
     top: 0px;
     font-size: 12px;
     color: #deb70c;
-  }
-  
-  .answerpost_box textarea:focus {
-    border-color: #deb70c;
-  }
+}
 
-  .post_btn{
+.answerpost_box textarea:focus {
+    border-color: #deb70c;
+}
+
+.post_btn {
     width: 15%;
-    max-height: 64px !important;
-    padding: 15.75px 0;
+    height: 64px;
+    padding: 22px 0;
     border-top-right-radius: 6px;
     font-size: 16px;
     cursor: pointer;
@@ -279,8 +327,8 @@ span {
     border: 1px solid #ffffff00;
     text-align: center;
     color: white;
-  }
-  
+}
+
 
 
 
@@ -291,44 +339,49 @@ span {
 
 
 @media(max-width:900px) {
-    .query,.answer {
+
+    .query,
+    .answer {
         width: 75vw;
     }
 
-    .answerpost_box{
+    .answerpost_box {
         width: 70%;
-        left: calc( 50% - 35%);  
+        left: calc(50% - 35%);
     }
 
 }
 
 @media(max-width:738px) {
-    .query,.answer{
+
+    .query,
+    .answer {
         width: 80vw;
     }
 
-    .form_group{
+    .form_group {
         width: 80%;
     }
 
-    .post_btn{
+    .post_btn {
         width: 20%;
     }
 
 }
 
 @media(max-width:600px) {
-    
-    .backbtn{
+
+    .backbtn {
         margin: 4px 10px !important;
     }
 
-    .tagContainer{
+    .tagContainer {
         margin-left: 8px;
         margin-right: 6px;
     }
 
-    .query,.answer{
+    .query,
+    .answer {
         width: 85vw;
         margin-left: 8px;
         padding: 10px !important;
@@ -364,39 +417,44 @@ span {
         font-size: 14px;
     }
 
-    .answerpost_box{
+    .answerpost_box {
         width: 80%;
-        left: calc( 50% - 40%);  
+        left: calc(50% - 40%);
     }
 
-    .form_group,.post_btn{
+    .form_group,
+    .post_btn {
         max-height: 50px;
     }
 
-    .answerpost_box textarea{
+    .answerpost_box textarea {
         max-height: 50px;
     }
 
-    .post_btn{
+    .post_btn {
         padding: 8px 0;
     }
 }
 
 
 @media(max-width:500px) {
-    .query.answer{
+    .query.answer {
         width: 87vw;
     }
 
-    .answerpost_box{
+    .answer {
+        margin-right: 8px;
+    }
+
+    .answerpost_box {
         width: 90%;
-        left: calc( 50% - 45%) !important;  
+        left: calc(50% - 45%) !important;
     }
 
-    .textarea_label{
-        top:25px ;
+    .textarea_label {
+        top: 25px;
     }
 
-    
+
 
 }
