@@ -1,4 +1,4 @@
-html{
+html {
     font-size: 16px;
 }
 
@@ -9,35 +9,69 @@ html{
 
 /* Scrollbar Track */
 ::-webkit-scrollbar {
-    width: 4px;  
-    height: 4px; 
+    width: 4px;
+    height: 4px;
 }
 
 /* Track (Background) */
 ::-webkit-scrollbar-track {
-    background: transparent;  /* No background */
+    background: transparent;
+    /* No background */
 }
 
 /* Scrollbar Thumb (Draggable part) */
 ::-webkit-scrollbar-thumb {
-    background: #dfcfb5; 
-    border-radius: 10px; /* Rounded corners */
+    background: #dfcfb5;
+    border-radius: 10px;
+    /* Rounded corners */
     transition: background 0.3s ease-in-out;
 }
 
 /* On Hover - More Visible */
 ::-webkit-scrollbar-thumb:hover {
-    background: #DEC498;  /* Darker on hover */
+    background: #DEC498;
+    /* Darker on hover */
+}
+
+
+/* ============================= */
+
+.mainloaderContainer{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.mainloader {
+    width: 55px;
+    margin: auto !important;
+    --b: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    padding: 1px;
+    background: conic-gradient(#0000 10%, #dec498) content-box;
+    -webkit-mask:
+        repeating-conic-gradient(#0000 0deg, #000 1deg 20deg, #0000 21deg 36deg),
+        radial-gradient(farthest-side, #0000 calc(100% - var(--b) - 1px), #000 calc(100% - var(--b)));
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+    animation: l4 1.2s infinite steps(10);
+}
+
+@keyframes l4 {
+    to {
+        transform: rotate(1turn)
+    }
 }
 
 
 /* ===== btn for post query ===== */
 
-.addBtn{
+.addBtn {
     width: 55px;
     height: 55px;
     background-color: #DEC498;
-    font-size:60px;
+    font-size: 60px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -50,12 +84,12 @@ html{
     cursor: pointer;
 }
 
-.addBtn p{
+.addBtn p {
     margin: 0;
     margin-top: 15px;
 }
 
-.dNone{
+.dNone {
     display: none;
 }
 
@@ -63,7 +97,7 @@ html{
 
 
 /* =============== query post box =========== */
-   
+
 /* avoid background activity */
 .overlay {
     position: fixed;
@@ -73,17 +107,18 @@ html{
     height: 100%;
     background: rgba(0, 0, 0, 0.302);
     display: none;
+    z-index: 50;
 }
 
-.overlay.active{
+.overlay.active {
     display: block;
     display: flex;
-    justify-content: center ;
-    align-items: center ;  
+    justify-content: center;
+    align-items: center;
 }
 
 /* =============== query post box =========== */
-.querypostBox{
+.querypostBox {
     background: white;
     padding: 10px 20px;
     border-radius: 6px;
@@ -92,16 +127,16 @@ html{
     width: 40vw;
 }
 
-.querypostBox h2{
+.querypostBox h2 {
     margin: 0 0 15px;
 }
 
-.querypostBox textarea{
+.querypostBox textarea {
     resize: none;
     width: 100%;
     height: 25vh;
     padding: 10px;
-    padding-top: 18px; 
+    padding-top: 18px;
     border: .1px solid #cccccc8b;
     background-color: #FFFDFB;
     border-radius: 4px;
@@ -113,7 +148,7 @@ html{
     color: rgb(47, 47, 47);
 }
 
-.querypostBox label{
+.querypostBox label {
     position: absolute;
     top: 25px;
     left: 10px;
@@ -124,32 +159,33 @@ html{
     color: #aaa;
     transition: all 0.2s ease-in-out;
     pointer-events: none;
-  }
+}
 
-  .querypostBox textarea:focus + label,
-  .querypostBox textarea:not(:placeholder-shown) + label {
+.querypostBox textarea:focus+label,
+.querypostBox textarea:not(:placeholder-shown)+label {
     top: 0px;
     font-size: 14px;
     color: #deb70c;
-  }
+}
 
-  .querypostBox textarea:focus{
-    border-color:  #deb70c;
-  }
+.querypostBox textarea:focus {
+    border-color: #deb70c;
+}
 
-  .formGroup {
+.formGroup {
     position: relative;
     width: 100%;
-    margin: 0 auto ;
-  }
+    margin: 0 auto;
+}
 
-.tagContainer{
+.tagContainer {
     display: flex;
     gap: 8px 10px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.tagContainer div{
+.tagContainer div {
     font-size: .8rem;
     padding: 3px 14px;
     /* background-color: rgb(238, 243, 255);
@@ -159,40 +195,40 @@ html{
     font-size: 12px;
     cursor: pointer;
     color: #68428f;
-  background-color:rgb(245, 236, 255);
+    background-color: rgb(245, 236, 255);
 }
 
-.selected{
+.selected {
     color: white !important;
     /* background-color: rgba(9, 9, 255, 0.597) !important; */
     background-color: rgb(147, 96, 198) !important;
 }
 
-.btn{
+.btn {
     padding: 6px 30px;
     font-size: 14px;
     border-radius: 60px;
     cursor: pointer;
 }
 
-.cancel{
+.cancel {
     border: .2px solid rgb(180, 180, 180);
     color: gray;
 }
 
-.post{
+.post {
     background-color: rgb(232, 204, 167);
     color: white;
 }
 
-.querypostBox .flex{
+.querypostBox .flex {
     display: flex;
     justify-content: end !important;
     gap: 12px;
     margin: 20px 0 10px;
 }
 
-.querypostBox p{
+.querypostBox p {
     margin: 0 0 10px 5px;
     font-size: 12px;
     color: grey;
@@ -203,7 +239,7 @@ html{
 /* ==================== Query Component ====================== */
 
 
-.query{
+.query {
     width: 70%;
     background-color: white;
     margin-left: 16px;
@@ -233,131 +269,135 @@ html{
     border-color: transparent #ffffff transparent transparent;
 }
 
-.query .header{
+.query .header {
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.profileInformation{
+.profileInformation {
     display: flex;
     gap: 12px;
     align-items: center !important;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
-.imageContainer{
-    width:42px !important;
-    height:42px !important;  
+.imageContainer {
+    width: 42px !important;
+    height: 42px !important;
 }
 
-.header img{
+.header img {
     width: 100%;
-    height: 100%; 
+    height: 100%;
+    border-radius: 50%;
 }
 
-.header p{
+.header p {
     margin: 0;
 }
 
-.imageContainer{
+.imageContainer {
     height: 45px;
     width: 45px;
 }
 
-.username{
+.username {
     font-size: 12px;
     color: rgb(174, 174, 174);
 }
 
-.timestamp{
+.timestamp {
     font-size: .8rem;
     margin-right: 10px;
     color: rgb(181, 181, 181);
 }
 
-.content p{
-    margin:10px 0 ;
+.content p {
+    margin: 10px 0;
     font-size: 14px;
     color: rgb(47, 47, 47);
 }
 
-.queryFooter{
+.queryFooter {
     border-top: 1px solid rgb(229, 229, 229);
 }
 
-.queryFooter{
+.queryFooter {
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
 }
 
-.likeImg{
+.likeImg {
     width: 40px;
     height: 40px;
 }
 
-.like{
+.like {
     justify-content: space-between;
 }
 
-.like p{
+.like p {
     margin: 0;
 }
 
 
-.comment p{
+.comment p {
     margin: 0;
 }
 
-.queryFooter{
+.queryFooter {
     padding: 8px 0 4px;
 }
 
 
-.likeButton, .commentButton {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: gray;
-  transition: color 0.3s ease;
+.likeButton,
+.commentButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: gray;
+    transition: color 0.3s ease;
 }
 
 
-.likeImg{
+.likeImg {
     margin: 0;
     width: 20px;
     height: 20px;
     padding: 0;
 }
 
-.likeImg img{
+.likeImg img {
     width: 100%;
     height: 100%;
     margin: 0;
 }
 
-.likeButton:hover, .commentButton:hover {
-  color: black;
+.likeButton:hover,
+.commentButton:hover {
+    color: black;
 }
 
-.liked{
-    color: black;  
+.liked {
+    color: black;
 }
 
 .icon {
-  width: 20px;
-  height: 20px;
+    width: 20px;
+    height: 20px;
 }
 
 /* for like and comment */
-span{
+span {
     font-size: 15px;
 }
 
@@ -365,12 +405,12 @@ span{
 
 /* ====================  UserQnA =========================== */
 
-.queryContainer .query{
+.queryContainer .query {
     border: 1px solid rgb(185, 185, 185) !important;
     border-radius: 4px !important;
 }
 
-.queryContainer .query::before{
+.queryContainer .query::before {
     border: 0;
 }
 
@@ -381,40 +421,40 @@ span{
 
 
 
-@media(max-width:1200px){
-    .querypostBox{
+@media(max-width:1200px) {
+    .querypostBox {
         width: 50vw !important;
     }
 }
-  
 
-@media(max-width:900px){
-    .query{
+
+@media(max-width:900px) {
+    .query {
         width: 75vw;
     }
 
-    .addBtn{
+    .addBtn {
         right: calc(3vw + 10px);
     }
 
-    .querypostBox{
+    .querypostBox {
         width: 60vw !important;
     }
 }
 
-@media(max-width:738px){
-    .query{
+@media(max-width:738px) {
+    .query {
         width: 80vw;
-    }   
+    }
 
-    .querypostBox{
+    .querypostBox {
         width: 75vw !important;
     }
 
 }
 
-@media(max-width:600px){
-    .query{
+@media(max-width:600px) {
+    .query {
         width: 82vw;
         margin-left: 13px;
     }
@@ -426,49 +466,53 @@ span{
         border-color: transparent #ffffff transparent transparent;
     }
 
-    .imageContainer{
-        width:38px !important;
-        height:38px !important;  
+    .imageContainer {
+        width: 38px !important;
+        height: 38px !important;
     }
 
-    .profileInformation{
-       gap: 10px;
+    .profileInformation {
+        gap: 10px;
     }
 
-   .content p{
-    font-size:13px;
-   }
+    .content p {
+        font-size: 13px;
+    }
 
-   .name{
-    font-size: 14px;
-   }
+    .name {
+        font-size: 14px;
+    }
 
-   .username{
-    font-size: 13px;
-   }
+    .username {
+        font-size: 13px;
+    }
 
-    .querypostBox{
+    .querypostBox {
         width: 80vw !important;
     }
 
     .icon {
         width: 18px;
         height: 18px;
-      }
+    }
 
-    span{
+    span {
         font-size: 14px;
     }
 
 }
-  
 
-@media(max-width:500px){
-    .query{
+
+@media(max-width:500px) {
+    .query {
         width: 87vw;
     }
 
-    .querypostBox{
+    .queryContainer .query {
+        margin-left: 8px;
+    }
+
+    .querypostBox {
         width: 90vw !important;
     }
 }

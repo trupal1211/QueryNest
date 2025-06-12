@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './Leaderboard.module.css'
+import '../../index.css'
 import { UserRow } from '../components'
 import tags from '../../assets/tags';
+import Cookies from 'js-cookie';
 
 function Leaderbord() {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('General Query');
+  const [selectedOption, setSelectedOption] = useState("");
   const [dropDirection, setDropDirection] = useState('down'); // 'down' or 'up'
   const dropdownRef = useRef(null);
 
@@ -37,12 +39,42 @@ function Leaderbord() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+
+  const [rankList, setRankList] = useState([])
+
+  useEffect(() => {
+
+    fetch("https://querynest-4tdw.onrender.com/api/leaderboard/gettopusers", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${Cookies.get("authToken")}`
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched User RankList Data:", data);
+        setRankList(data.users)
+      })
+      .catch((err) => {
+        console.error("Failed to fetch user data:", err);
+        setError(err.message);
+      })
+  }, []);
+
   return (
     <>
       <div className='main_container bg-white'>
         <div className={styles.container} ref={dropdownRef}>
-          <div className={styles.title}> 
-            <p>Leaderboard</p><p className={`${styles.tag} ${styles.max_tag} `}># {selectedOption} </p><p className={styles.ltime}>jun 2024</p>
+          <div className={styles.title}>
+            <p>Leaderboard</p>
+         {selectedOption &&<p className={`${styles.tag} ${styles.max_tag} `}># {selectedOption} </p> }   
+          {selectedOption &&   <p className={styles.ltime}>Feb 2024</p>}
           </div>
 
           <button className={styles.button} onClick={toggleDropdown}>
@@ -65,25 +97,22 @@ function Leaderbord() {
         </div>
 
         <div className={styles.tag_container}>
-           <p className={styles.tag}># {selectedOption} </p>
-           <p className={styles.mtime}>jun 2024</p>
+        {selectedOption && <p className={styles.tag}># {selectedOption} </p>}
+          <p className={styles.mtime}>Feb 2024</p>
         </div>
 
         {/* {selectedOption} */}
 
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
-        <UserRow />
+        {rankList?
+          rankList?.map((user,index)=>{
+           return <UserRow key={user._id} rank={index+1} name={user.name} id={user._id} username={user.username} imgUrl={user.imageUrl} points={user.totalPoints}/>
+         })
+        : <div className="mainloaderContainer">
+          <div className="mainloader"></div>
+        </div> }
+
+
+        
 
       </div>
     </>

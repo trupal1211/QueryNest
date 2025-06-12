@@ -1,20 +1,19 @@
 .user{
-    width: 85%;
-    margin:10px auto;
-    padding: 0 40px;
-    padding-bottom: 8px;
+    width: 100%;
+    margin:0px auto;
+    padding: 4px 20px;
     box-sizing: border-box;
     line-height: 1 !important;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between !important;
     align-items: center;
     /* background-color: aqua; */
-    border-bottom:1px solid lightslategrey ;
+    border-bottom:1px solid rgb(232, 232, 232);
 }
 
 .profile_pic{
-    width: 44px;
-    height: 44px;
+    width: 35px;
+    height: 35px;
 }
 
 .user .profile_pic img{
@@ -30,8 +29,8 @@
 }
 
 .number{
-    padding-right: 25px;
-    font-size: 18px;
+    padding-right: 10px;
+    
 }
 
 .name{

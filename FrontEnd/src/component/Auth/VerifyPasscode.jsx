@@ -8,7 +8,23 @@ function VerifyPasscode() {
 
     const navigate = useNavigate()
     const [otp, setOtp] = useState(new Array(6).fill(""));
-    const [error, setError] = useState(""); // Floating error message
+
+    const [loaderStatus, setLoaderStatus] = useState(false);
+    const [error, setError] = useState(""); 
+    const [success, setSuccess] = useState(""); 
+
+
+    function showError(message) {
+        setError(message);
+        setSuccess(""); 
+        setTimeout(() => setError(""), 4000);
+    }
+
+    function showSuccess(message) {
+        setSuccess(message);
+        setError(""); 
+        setTimeout(() => setSuccess(""), 4000);
+    }
 
     const handleChange = (index, e) => {
         const value = e.target.value;
@@ -23,10 +39,6 @@ function VerifyPasscode() {
             document.getElementById(`otp-${index + 1}`).focus();
         }
 
-        // Call function when all inputs are filled
-        if (newOtp.every((digit) => digit !== "")) {
-            handleComplete(newOtp.join(""));
-        }
     };
 
     const handleKeyDown = (index, e) => {
@@ -35,17 +47,54 @@ function VerifyPasscode() {
         }
     };
 
-    const handleComplete = (otpValue) => {
-        alert(`OTP Submitted: ${otpValue}`);
-    };
+    
 
-    async function submitHandler(e){
+
+    async function submitHandler(e) {
+
         e.preventDefault()
+
+        // convert array to String
+        let otpString = otp.join("")
+
+        const verifyPasscodeData = {
+            email: localStorage.getItem("Passcode_Email"),
+            passcode: otpString
+        };
+
+        console.log(verifyPasscodeData)
+
+        setLoaderStatus(true)
+
+        try {
+            const response = await fetch("https://querynest-4tdw.onrender.com/api/User/verifypasscode", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(verifyPasscodeData),
+            });
+
+
+            const result = await response.json();
+            console.log(result)
+
+            setLoaderStatus(false)
+
+            if (response.ok) {
+                showSuccess("passcode verified");
+                setTimeout(() => navigate("/reset-password"), 2000)
+            } else {
+                showError(result.message);
+            }
+        } catch (error) {
+            showError(error.message || "Something went wrong. Please try again.");
+            setLoaderStatus(false)
+        }
     }
 
-    
+
     return (
         <>
+
             <div className={styles.main_page}>
                 <div className={styles.name_container}>
                     <div className={styles.welcome_content}>
@@ -54,9 +103,10 @@ function VerifyPasscode() {
                         <p className={styles.slogan}>- Ask,Answer,Grow</p>
                     </div>
                 </div>
-                <form className={styles.form}>
+                <form className={styles.form} onSubmit={submitHandler}>
                     <h2>Enter Passcode</h2>
-                    <p style={{ lineHeight: '1.5', color: 'gray' , marginLeft:'10px',marginRight:'10px' }}>We have sent a 6-digit OTP to your registered E-mail. Please enter it below for verification.</p>
+
+                    <p style={{ lineHeight: '1.5', color: 'gray', marginLeft: '10px', marginRight: '10px' }}>We have sent a 6-digit OTP to your registered E-mail. Please enter it below for verification.</p>
 
                     <div className={styles.otpContainer}>
                         {otp.map((digit, index) => (
@@ -73,12 +123,21 @@ function VerifyPasscode() {
                         ))}
                     </div>
 
-                    <button className={`${styles.btn} ${styles.submitBtn}`} onClick={submitHandler}>Submit</button>
+                    <button className={`${styles.btn} ${styles.submitBtn}`} 
+                        type={loaderStatus ? "button" : "submit"} disabled={loaderStatus}>
+                        {!loaderStatus ? 'Submit' : <div className={styles.loader}></div>}
+                    </button>
 
-                    <p className={styles.rednotes}>Passcode will expires in 20 minutes</p>
+                    <p style={{color:'#ff4545',marginBottom:'20px'}}>Passcode will expires in 20 minutes</p>
 
                 </form>
             </div>
+
+            {/* Floating Error Message */}
+            {error && <div className={styles.errorMsg}>{error}</div>}
+
+            {/* Floating Success Message */}
+            {success && <div className={styles.successMsg}>{success}</div>}
         </>
     )
 }
