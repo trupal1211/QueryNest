@@ -90,17 +90,17 @@ exports.registerUser = async (req, res) => {
 exports.verifyOTP = async (req, res) => {
     try {
       const { clgemail, otp } = req.body;
-  
+
       // Find user in Temp schema
       const tempUser = await Temp.findOne({ clgemail });
-  
+
       if (!tempUser) return res.status(404).json({ error: "User not found!" });
-  
+
       // Check OTP and expiration
       if (tempUser.otp !== otp || tempUser.otpExpires < new Date()) {
         return res.status(400).json({ error: "Invalid or expired OTP!" });
       }
-  
+
       // Create a new user in the User schema
       const newUser = new User({
         name: tempUser.name,
@@ -109,12 +109,12 @@ exports.verifyOTP = async (req, res) => {
         password: tempUser.password,
         verified: true, // Mark as verified
       });
-  
+
       await newUser.save();
-  
+
       // Remove the user from Temp schema
       await Temp.deleteOne({ clgemail });
-  
+
       // Send confirmation email
       await transporter.sendMail({
         from: EMAIL_USER,
@@ -123,13 +123,13 @@ exports.verifyOTP = async (req, res) => {
         html: `<h1>Congratulations, ${tempUser.name}!</h1>
                      <p>Your registration is complete. Welcome to our platform! 🎉</p>`,
       });
-  
+
       res.status(200).json({ message: "Registration successful!" });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
   };
-  
+
 
 // Resend OTP
 exports.resendOTP = async (req, res) => {
@@ -185,7 +185,7 @@ exports.loginUser = async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign(
-      { userId: user._id, email:email },
+      { userId: user._id, email:user.email },
       JWT_SECRET,
       { expiresIn: JWT_EXPIRES_IN }
     );
@@ -326,16 +326,16 @@ exports.resetPassword = async (req, res) => {
 
         // Send confirmation email
         try {
-            await transporter.sendMail({
-                from: EMAIL_USER,
-                to: primaryEmail || fallbackEmail,
-                subject: "Password Reset Successful 🎉",
-                html: `
+            transporter.sendMail({
+            from: EMAIL_USER,
+            to: primaryEmail || fallbackEmail,
+            subject: "Password Reset Successful 🎉",
+            html: `
                     <h1>Password Reset Successful</h1>
                     <p>Your password has been successfully reset. You can now log in with your new password.</p>
                     <p>If you didn’t perform this action, please contact support immediately.</p>
                 `,
-            });
+          });
         } catch (emailError) {
             console.error("Error sending email to primary:", emailError.message);
 
@@ -389,43 +389,6 @@ exports.getUserById = async (req, res) => {
     if (!user) return res.status(404).json({ message: "Profile not found" });
 
     res.json(user);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-};
-
-// Update a user profile by ID
-exports.updateUserProfile = async (req, res) => {
-  try {
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      return res.status(400).json({ error: "Invalid profile ID format." });
-    }
-
-    const profile = await UserProfile.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      { new: true, runValidators: true }
-    ).populate("userId tags.tag questions answers");
-
-    if (!profile) return res.status(404).json({ message: "Profile not found" });
-
-    res.json(profile);
-  } catch (err) {
-    res.status(400).json({ error: err.message });
-  }
-};
-
-// Delete a user profile by ID
-exports.deleteUserProfile = async (req, res) => {
-  try {
-    if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-      return res.status(400).json({ error: "Invalid profile ID format." });
-    }
-
-    const profile = await UserProfile.findByIdAndDelete(req.params.id);
-    if (!profile) return res.status(404).json({ message: "Profile not found" });
-
-    res.json({ message: "Profile deleted successfully" });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

@@ -20,7 +20,6 @@ const {
 
 const {authenticateUser}=require("../Controllers/AuthController")
 
-
 router.post("/register", registerUser);
 router.post("/verify-otp", verifyOTP);
 router.post("/resend-otp", resendOTP);
@@ -35,7 +34,6 @@ router.post("/reset-password", resetPassword);
 
 router.get("/", getAllUser);
 router.get("/me",authenticateUser, getUserById);
-router.put("/:id", updateUserProfile);
-router.delete("/:id", deleteUserProfile);
+
 
 module.exports = router;

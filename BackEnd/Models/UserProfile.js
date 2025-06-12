@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const axios = require("axios");
-const gittoken=process.env.GIT_TOKEN
+const gittoken = process.env.GIT_TOKEN;
 
 // Function to generate a random color
 function generateRandomColor() {
@@ -15,7 +15,7 @@ function generateImageUrl(name) {
     words.length >= 2
       ? words[0][0].toUpperCase() + words[1][0].toUpperCase()
       : words[0][0].toUpperCase();
-  
+
   const randomColor = generateRandomColor();
   return `https://ui-avatars.com/api/?name=${initials}&background=${randomColor}&color=fff`;
 }
@@ -30,7 +30,7 @@ const UserProfileSchema = new mongoose.Schema(
     },
     clgemail: { type: String, unique: true },
     backupemail: { type: String, unique: true, sparse: true },
-     name: { type: String, required: true },
+    name: { type: String, required: true },
     username: { type: String, required: true, unique: true },
     bio: { type: String, required: true },
     tags: {
@@ -43,10 +43,21 @@ const UserProfileSchema = new mongoose.Schema(
       },
     },
     lastTagUpdate: { type: Date, default: Date.now },
-    LinkedInUrl: { type: String, sparse: true },
+    LinkedInUrl: {
+      type: String,
+      sparse: true,
+      set: (v) => (v === "" ? undefined : v), // Prevent storing empty strings
+    },
 
     // GitHub-related fields
-    githubUsername: { type: String, unique: true, sparse: true },
+    githubUsername: {
+      type: String,
+      unique: true,
+      sparse: true, //  Allows multiple documents without githubUsername
+      default: undefined,
+      set: (v) => (!v || v === "" ? undefined : v), //  Prevents storing `null`
+    },
+
     githubPublicRepos: { type: Number, default: 0 },
     githubAvatarUrl: { type: String, default: "" },
     useGithubAvatar: { type: Boolean, default: false },
@@ -68,37 +79,63 @@ const UserProfileSchema = new mongoose.Schema(
     avgRating: {
       type: Number,
       default: 0,
-      min: [0, "Rating cannot be negative."],
-      max: [5, "Rating cannot be greater than 5."],
+      min: 0,
+      max: 5,
     },
+    
+
     totalPoints: {
       type: Number,
       default: 0,
       min: [0, "Total points cannot be negative."],
     },
-    questionIds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Question", default: [] }],
-    answerIds: [{ type: mongoose.Schema.Types.ObjectId, ref: "Answer", default: [] }],
+    questionIds: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Question", default: [] },
+    ],
+    answerIds: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Answer", default: [] },
+    ],
     achievements: [{ type: String, default: [] }],
-    followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User", default: [] }],
-    following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User", default: [] }],
+    followers: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "User", default: [] },
+    ],
+    following: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "User", default: [] },
+    ],
     noOfFollowers: { type: Number, default: 0 },
     noOfFollowing: { type: Number, default: 0 },
-    likedQuestion: [{ type: mongoose.Schema.Types.ObjectId, ref: "Question", default: [] }],
-    likedAnswer: [{ type: mongoose.Schema.Types.ObjectId, ref: "Answer", default: [] }],
+    likedQuestion: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Question", default: [] },
+    ],
+    likedAnswer: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Answer", default: [] },
+    ],
   },
   { timestamps: true }
 );
-UserProfileSchema.index({ name: "text", username: "text", bio: "text", Graduation: "text", tags: "text" });
 
+UserProfileSchema.index({
+  name: "text",
+  username: "text",
+  bio: "text",
+  Graduation: "text",
+  tags: "text",
+});
 
-// ✅ Automatically update `lastTagUpdate` when `tags` change
+//  Automatically update `lastTagUpdate` when `tags` change
 UserProfileSchema.pre("save", function (next) {
   if (this.isModified("tags")) {
     this.lastTagUpdate = new Date();
   }
+
   next();
 });
-
+UserProfileSchema.pre("validate", function (next) {
+  if (!this.githubUsername) {
+    delete this.githubUsername; //  Removes the field if empty
+  }
+  next();
+});
 
 // Middleware to sync updates with the User schema
 UserProfileSchema.pre("save", async function (next) {
@@ -122,14 +159,14 @@ UserProfileSchema.pre("save", async function (next) {
     if (this.isModified("githubUsername") && this.githubUsername) {
       try {
         const githubResponse = await axios.get(
-          `https://api.github.com/users/${githubUsername}`,
+          `https://api.github.com/users/${this.githubUsername}`,
           {
             headers: {
-              Authorization: `token ${gittoken}`
-            }
+              Authorization: `token ${gittoken}`,
+            },
           }
         );
-        
+
         this.githubAvatarUrl = githubResponse.data.avatar_url;
         this.githubPublicRepos = githubResponse.data.public_repos;
       } catch (githubError) {
@@ -146,7 +183,11 @@ UserProfileSchema.pre("save", async function (next) {
     }
 
     // Ensure `imageUrl` updates correctly based on `useGithubAvatar`
-    if (this.isModified("useGithubAvatar") || this.isModified("githubAvatarUrl") || this.isModified("githubUsername")) {
+    if (
+      this.isModified("useGithubAvatar") ||
+      this.isModified("githubAvatarUrl") ||
+      this.isModified("githubUsername")
+    ) {
       this.imageUrl =
         this.useGithubAvatar && this.githubAvatarUrl
           ? this.githubAvatarUrl
@@ -162,11 +203,9 @@ UserProfileSchema.pre("save", async function (next) {
       imageUrl: this.imageUrl, // Updated imageUrl
     };
 
-    const updatedUser = await mongoose.model("User").findByIdAndUpdate(
-      this.userid,
-      updatedUserData,
-      { new: true, session }
-    );
+    const updatedUser = await mongoose
+      .model("User")
+      .findByIdAndUpdate(this.userid, updatedUserData, { new: true, session });
 
     if (!updatedUser) {
       await session.abortTransaction();
